@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Regular Expression Note]]></title>
+    <url>%2F2020%2F12%2F11%2FRegular-Expression-Note%2F</url>
+    <content type="text"><![CDATA[正则表达式 普通字符大小写字母、数字、标点符号和一些其他符号 字符 描述 [ABC] 匹配中的所有字符 [^ABC] 匹配除中的所有字符 [A-Za-z] A-Z匹配所有大写字母 a-z匹配所有小写字母 \d\D \d匹配数字字符\D匹配非数字字符 \s\S \s匹配空白符 \S匹配非空白符 \b\B \b匹配单词边界\B匹配非单词边界 \w 匹配字母、数字、下划线 等价于[A-Za-z0-9_] 特殊字符匹配特殊字符时需要先用转义字符转义 特殊字符 描述 $ 匹配字符串结尾 () 标记一个子表达式的开始和结束位置 * 匹配前面的子表达式零次或多次 + 匹配前面的子表达式一次或多次 ? 匹配前面的子表达式零次或一次 . 匹配除换行符外的所有单字符 [ 标记一个中括号表达式开始的位置 \ 转义符 ^ 匹配字符串开头，或在中括号表达式中表示非 { 标记限定符表达式的开始 限定符限定符用来指定正则表达式的一个给定组件必须要出现多少次才能满足匹配，除了之前提到的* + ?之外还有{n} {n,} {n,m}共六种。 字符 描述 {n} 匹配n次 {n,} 匹配不少于n次 {n,m} 匹配n到m次 反向引用你可以使用$n //vscode访问正则表达式中第n个子表达式的值 非捕获元你可以使用非捕获元省略子表达式结果 非捕获元 描述 (?:exp) 省略表达式exp结果 exp1(?=exp2) 查找exp2前的exp1 (?&lt;=exp2)exp1 查找exp2后的exp1 exp1(?!exp2) 查找非exp2前的exp1 (?&lt;!exp2)exp1 查找非exp2后的exp1]]></content>
+      <categories>
+        <category>Efficiency</category>
+      </categories>
+      <tags>
+        <tag>Regular Expression</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Essense of Linear Algebra]]></title>
+    <url>%2F2020%2F12%2F09%2FEssense-of-Linear-Algebra%2F</url>
+    <content type="text"><![CDATA[线性代数的本质 Matrices as Linear Transformations矩阵即线性变换，你可以将线性变换看成一个特殊的函数，他接受现有的空间，并将其转变为另一个空间，这种空间的变换可以用基向量(basis)的变化来描述。 以二维空间为例，假设一个二维空间由基向量$\hat{i} \begin{bmatrix}1\0 \end{bmatrix} \ \hat{j} \begin{bmatrix}0\1 \end{bmatrix}$定义，我们可以用变换后的基向量$\hat{i} \begin{bmatrix}a\b \end{bmatrix} \ \hat{j} \begin{bmatrix}c\d \end{bmatrix}$组成的$2\times2$矩阵$\begin{bmatrix} a&amp;c\b&amp;d \end{bmatrix}$来描述这种变换。就像函数一样，如果你想得到一个向量$\vec{v}\begin{bmatrix}1\1\end{bmatrix}$在变换后的坐标，只需要用变换矩阵乘以这个向量即可$\vec{v}_{trans}=\begin{bmatrix}a&amp;c\b&amp;d\end{bmatrix}\begin{bmatrix}1\1\end{bmatrix}$ 更高维空间的线性变换也与之类似，你只需要用更多的基向量来描述这个变化。 线性变换之后的空间中的直线不能被扭曲，且原点固定，即变换后的空间中的直线依旧保持平行且等距。 更准确的定义是线性变换保留向量的加法和数乘操作： 可加性：$L(\vec{v}+\vec{w})=L(\vec{v})+L(\vec{w})$ 成比例：$L(c\vec{v})=cL(\vec{v})$ Matrices Multiplication as Composition矩阵乘法即线性变换的复合 由前面的结论可知矩阵的乘法就是一系列线性变换的组合，和函数的复合一样($f(g(x))$)，你应该按照从右到左来完成这个组合。 Determinant当$A$表示线性变化时，行列式$det{(A)}$的值描述了线性变换$A$缩放空间的比例。 而当$A$是由多个非线性相关向量组成的方阵时，行列式$det{(A)}$的值描述了向量张成空间的大小。 通过这一性质，我们可以推导出克莱姆(Cramer’s Rule)法则:$x_i = \frac{D_i}{D}$ 以一个由基向量$\hat{i} \begin{bmatrix}1\0 \end{bmatrix} \ \hat{j} \begin{bmatrix}0\1 \end{bmatrix}$定义的二维空间为例，假设向量$\vec{v}=\begin{bmatrix}x\y\end{bmatrix}$经过线性变换$A=\begin{bmatrix}a{11}&amp;a{12}\a{21}&amp;a{22}\end{bmatrix}$后得到向量$\vec{v_{trans}}=\begin{bmatrix}b_1\b_2\end{bmatrix}$ 因为$det{(A)}$描述了线性变换缩放空间的比例 特别的，当$det{(A)}=0$时，意味着$A$将原空间压缩到了更低的维度。 $A$的秩(Rank)指的是列向量张成的空间的维数，记作$R(A)$，若$n$阶方阵的秩是$n$，称为满秩方阵，否则称之为降秩方阵，显然当$det{(A)}=0$时，$A$为降秩方阵。 Change of Basis如果在用不同基向量描述的空间中应用现有空间中的线性变换呢？ 假设现有空间是由基向量$\hat{i} \begin{bmatrix}1\0 \end{bmatrix} \ \hat{j} \begin{bmatrix}0\1 \end{bmatrix}$定义的二维空间，目标空间是由基向量$\hat{i} \begin{bmatrix}1\1 \end{bmatrix} \ \hat{j} \begin{bmatrix}0\1 \end{bmatrix}$定义的二维空间，在目标空间中应用线性变换$A$的步骤为： 使用现有空间基向量模拟目标空间基向量进行变换$A$，再将基向量转换为目标空间的基向量 ${\begin{bmatrix}1&amp;0\1&amp;1\end{bmatrix}}^{-1}A\begin{bmatrix}1&amp;0\1&amp;1\end{bmatrix}$ Eigenvectors &amp; Eigenvalues特征向量(Eigenvectors)是指在变化后未离开其张开空间的向量。特征值(Eigenvalues)则是指其被缩放的比例。]]></content>
+      <categories>
+        <category>Math</category>
+      </categories>
+      <tags>
+        <tag>Linear Algebra</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Memos]]></title>
+    <url>%2F2020%2F12%2F07%2FMemos%2F</url>
+    <content type="text"><![CDATA[Password 5cd964534a95457b58722b0a9f41f0bea0de2398750645c71c4e8f0fb7be6e96a034dc5be5eeacb2e363a32d258f749025398d9e6aa0521ad160d435585e1e4fe424f267c09f31eeaa0f0d45e890ca41dab476dfe9dcd78556d1be566ddfcfadf72257ca23977776a57676abd41ca89093fc7c8dc74605494581b3281895adb61cc1959e611ddc3465f19c58a34a2a11c657edb1971f59991c554343df3e45749f74e0c5c1fff73d66378a7e621f5b530c903995c0a5843ac47f94a92c6bf5c20fe12e2c62c1c1b1be3e7135e063d4db20914b3ab355ee02fd6c778274550085aac446ebc18980454283a6e40672f2cc4b2f82a7ee616d8ae0ed230a8ba96e61054201f1ef7024542ab92ad705c8964118bae0e0cf5bc23ec1e9649ad189c5681e84407b97d31ee516d4aa8c612388a821eebffc5ea92541ab49b5c0648515e816b64813bc3efd2c164a549449e136c15e6d0afa6468ac594d4b8dfb155d9c94376c40f45645118fc46a407b75d052cfdab350688b0171165d5770ba1570bc55c308bef4d9337988e12df8178884a128e888fe6c15244bdad4ff208ea34614ecaec01c9fb75a39d2a8274794d94fc642eaa5b940397dd1f092926610b86b38e0c7677458561614e31d718d9c8ae53e8fcac518be8346310fff67a6a7627cf744859b91b4d5f0e9532f6c7ec5b8eb3fc9d85f103706bcfcb52851d80010ada22b9704b386a348f5ba1fa784ed2636fa47c3c84273dbb1f4fb6d115c9a845a8aeebc1974c3ad1be7456ef860475bfcb38dfecb6591a9fb8ff4bdc2eaeb0ba6604984351e46cf2f0a7833261f8da4c00cb1855fef3a339ae242d021671556da205b97338411321ed8575b6d85292348ee2979afe2aea9759a5c6618cc4276f2f75a]]></content>
+      <tags>
+        <tag>Private</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo-Note]]></title>
+    <url>%2F2020%2F12%2F04%2FHexo-Note%2F</url>
+    <content type="text"><![CDATA[本文基于next主题 一些折腾的笔记 GitHub Action自动部署为了更方便地管理项目的源代码，我们可以将源代码托管在GitHub上，并且通过GitHub Action实现每次更新源代码时自动编译部署。 准备密钥123ssh-keygen -t rsa -C "MailAddress"~/.ssh/id_rsa.pub //公钥~/.ssh/id_rsa //私钥 密钥设置在github.io项目中设置Deploy keys为公钥 在源代码项目Setting中新增私钥为Secrets，命名为DEPLOY_KEY Action配置文件在Action中新增workflow 建立文件deploy.yml 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051# workflow namename: Hexo Blog CI# master branch on push, auto runon: push: branches: - master jobs: build: runs-on: ubuntu-latest steps: # check it to your workflow can access it # from: https://github.com/actions/checkout - name: Checkout Repository master branch uses: actions/checkout@v2 # from: https://github.com/actions/setup-node - name: Setup Node.js 10.x uses: actions/setup-node@master with: node-version: "10.x" - name: Setup Hexo Dependencies run: | npm install hexo-cli -g npm install hexo-deployer-git --save npm install - name: Setup Deploy Private Key env: HEXO_DEPLOY_PRIVATE_KEY: $&#123;&#123; secrets.DEPLOY_KEY &#125;&#125; run: | mkdir -p ~/.ssh/ echo "$HEXO_DEPLOY_PRIVATE_KEY" &gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts - name: Setup Git Infomation run: | git config --global user.name "anarlyon" git config --global user.email "anarlyon@outlook.com" git config --global core.quotepath false - name: Deploy Hexo run: | rm -rf .deploy_git hexo clean hexo generate hexo deploy LaTeX支持更换渲染引擎12npm unistall hexo-renderer-marked --savenpm install hexo-renderer-kramed --save 行内公式修复编辑\node_modules\kramed\lib\rules\inline.js 1234//escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/, 其他设置在主题设置文件中设置engine: mathjax 需要在文章中使用LaTeX时，在font-matter中声明mathjax: true 字体设置在主题设置文件中设置 123456789101112131415161718192021222324252627282930313233343536373839404142font: enable: true # Uri of fonts host, e.g. //fonts.googleapis.com (Default). host: https://fonts.loli.net # Font options: # `external: true` will load this font family from `host` above. # `family: Times New Roman`. Without any quotes. # `size: xx`. Use `px` as unit. # Global font settings used for all elements in &lt;body&gt;. global: external: true family: size: 18 # Font settings for Headlines (H1, H2, H3, H4, H5, H6). # Fallback to `global` font settings. headings: external: true family: Noto Serif SC size: 27 # Font settings for posts. # Fallback to `global` font settings. posts: external: true family: Noto Serif SC # Font settings for Logo. # Fallback to `global` font settings. logo: external: true family: Lato size: # Font settings for &lt;code&gt; and code blocks. codes: external: true family: Roboto Mono size: 图床设置GitHub图床GitHub + PicGo 加密文章安装加密插件npm install --save hexo-blog-encrypt 配置在站点配置文件中添加配置（按标签加密） 1234567# Securityencrypt: # hexo-blog-encrypt enable: true abstract: Encrypted. message: Password tags: - &#123;name: Tag_Name, password: Password&#125; 隐藏文章修改theme/next/layout/index.swig 12345&#123;# &#123;&#123; post_template.render(post, true) &#125;&#125; #&#125;&#123;% if post.visible !== 'hide' %&#125; &#123;&#123; post_template.render(post, true) &#125;&#125;&#123;% endif %&#125; 当你需要隐藏文章时，只需在font-matter中声明visible: hide 主题修改去掉上下文修改theme/next/layout/_macro/post.swig注释掉以下内容 1234567891011121314151617&#123;# &#123;% if not is_index and (post.prev or post.next) %&#125; &lt;div class="post-nav"&gt; &lt;div class="post-nav-next post-nav-item"&gt; &#123;% if post.next %&#125; ... &#123;% endif %&#125; &lt;/div&gt; &lt;span class="post-nav-divider"&gt;&lt;/span&gt; &lt;div class="post-nav-prev post-nav-item"&gt; &#123;% if post.prev %&#125; ... &#123;% endif %&#125; &lt;/div&gt; &lt;/div&gt;&#123;% endif %&#125; #&#125; 颜色修改更改CSS文件夹中对应元素属性即可]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Words-Week1]]></title>
+    <url>%2F2020%2F12%2F02%2FWords-Week1%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>IELTS</category>
+      </categories>
+      <tags>
+        <tag>Words</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LaTeX Notes]]></title>
+    <url>%2F2020%2F11%2F30%2FLaTeX-Note%2F</url>
+    <content type="text"><![CDATA[一、行内与独行行内公式1$Inline Math$ eg: $xOy$ 独行公式123$$Math Block$$ eg: S_n = \frac{1}{2}n(a_1 + a_2) \tag{1.1} 二、上下标上标1$a^n$ eg: $a^n$ 下标1$a_n$ eg: $a_n$ 三、格式控制字体格式1$\displaystyle$ //让公式以原大小显示 eg: $\frac{x+y}{y+z}$ 对比 $\displaystyle \frac{x+y}{y+z}$ 下划线1$\underline$ eg: $\underline{x+y}$ 空格1$ \ $ eg: $x \ y$ 换行1$line1 \\ line2$ eg: $line1 \ line2$ 标签1$\tag&#123;&#125;$ eg: $\tag{1-1}$ 上大括号1$\overbrace&#123;&#125;^&#123;&#125;$ eg: $\overbrace{1+2+…+n}^{n}$ 下大括号1$\underbrace&#123;&#125;_&#123;&#125;$ eg: $\underbrace{1+2+…+n}_{n}$ 单边大括号123456$$\begin&#123;cases&#125;equation1\\equation2\\\end&#123;cases&#125;$$ eg: \begin{cases} x + y = 2\\ 2x - y = 1\\ \end{cases}其他括号1234567$$\left( \right) //()\left[ \right] //[]\left&#123; \right\&#125; //&#123;&#125;\left. \right\&#125; //省略左括号\left\&#123; \right. //省略右括号$$ \left( \frac{a}{b}\right) \ \left[ \frac{a}{b}\right] \ \left\{ \frac{a}{b}\right\} \ \left. \frac{a}{b}\right\} \ \left\{ \frac{a}{b}\right.对齐123456$$\begin&#123;align&#125; x + y &amp;= 2 \\ //按&amp;处对齐 2x - y &amp;= 1\end&#123;align&#125;$$ \begin{align} x + y = 2 \\ 2x - y = 1 \end{align}四、四则运算加减1$\pm$ eg: $x \pm y$ 叉乘1$\times$ eg: $x \times y = z$ 点乘1$\cdot$ eg: $x \cdot y = z$ 除号1$\div$ eg: $x \div y = z$ 分式12$\frac&#123;分子&#125;&#123;分母&#125;$$&#123;分子&#125;\over&#123;分母&#125;$ eg: $\frac{x+y}{y+z}$ ${y+z}\over{x+y}$ 绝对值1$|x|$ eg: $|x|$ 五、高级运算平均数1$\overline&#123;&#125;$ $\overline{xyz}$ 开方1$\sqrt[n]&#123;&#125;$ eg: $\sqrt[n]{x+y}$ 对数1$\log_n&#123;&#125;$ eg: $\log_2{n}$ 极限1$\displaystyle \lim&#123;&#125;$ eg: $\displaystyle \lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$ 求和1$\displaystyle \sum&#123;&#125;$ eg: $\displaystyle \sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$ 积分1$\displaystyle \int$ eg: $\displaystyle \int^{x \to \infty}_{y \to 0}{xdx}$ 微分1$\partial$ eg: $\frac{\partial x}{\partial y}$ 矩阵123456$\begin&#123;matrix&#125; \end&#123;matrix&#125;$ //no bracket$\begin&#123;pmatrix&#125; \end&#123;pmatrix&#125;$ //( )$\begin&#123;bmatrix&#125; \end&#123;bmatrix&#125;$ //[ ]$\begin&#123;Bmatrix&#125; \end&#123;Bmatrix&#125;$ //&#123; &#125;$\begin&#123;vmatrix&#125; \end&#123;vmatrix&#125;$ //| |$\begin&#123;Vmatrix&#125; \end&#123;Vmatrix&#125;$ //|| || eg: \begin{matrix} 1 & 2 \\ 3 & 4\end{matrix}\ \begin{pmatrix} 1 & 2 \\ 3 & 4\end{pmatrix}\ \begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix}\ \begin{Bmatrix} 1 & 2 \\ 3 & 4\end{Bmatrix}\ \begin{vmatrix} 1 & 2 \\ 3 & 4\end{vmatrix}\ \begin{Vmatrix} 1 & 2 \\ 3 & 4\end{Vmatrix}\六、逻辑运算大于等于1$\geq$ eg: $x \geq y$ 小于等于1$\leq$ eg: $x \leq y$ 不等于1$\neq$ eg: $x \neq y$ 约等于1$\approx$ eg: $x \approx y$ 恒等于1$\equiv$ eg: $x \equiv y$ 七、集合运算属于1$\in$ eg: $A \in B$ 不属于12$\notin$$\not\in$ eg: $A \notin B, B \not\in C$ 子集12$\subset$$\supset$ eg: $A \subset B, A \supset B$ 非子集12$\not\subset$$\not\supset$ eg: $A \not\subset B, A \not\supset B$ 真子集12$\subseteq$$\supseteq$ eg: $A \subseteq B, A \supseteq B$ 交集1$\cap$ eg: $A \cap B$ 并集1$\cup$ eg: $A \cup B$ 差集1$\setminus$ eg: $A \setminus B$ 常用数集1$\mathbb&#123;数集字母&#125;$ 实数集 $\mathbb{R}$ 自然数集 $\mathbb{N}$ 整数集 $\mathbb{Z}$ 有理数集 $\mathbb{Q}$ 空集12$\empty$$\emptyset$ $\empty$ 八、数学符号无穷1$\infty$ eg: $\infty, -\infty$ 虚数12$\imath$$\jmath$ eg: $\imath, \jmath$ 向量符号1$\vec&#123;&#125;$ eg: $\vec{AC} = \vec{AB}+\vec{BC}$ 导数123$\dot&#123;&#125;$ //一阶导数$\ddot&#123;&#125;$ //二阶导数$\...dot&#123;&#125;$ //依此类推 eg: $\dot{y}, \ddot{y}$ 箭头12345678$\uparrow$ //上箭头$\Uparrow$ //双线上箭头$\downarrow$ //下箭头$\Downarrow$ //双线下箭头$\leftarrow$ //左箭头$\Leftarrow$ //双线左箭头$\rightarrow$ //右箭头$\Rightarrow$ //双线右箭头 eg: $\uparrow \ \Uparrow \ \downarrow \ \Downarrow \ \leftarrow \ \Leftarrow \ \rightarrow \ \Rightarrow$ 省略号1234$\ldots$ //底端对齐$\cdots$ //中线对齐$\vdots$ //垂直对齐$\ddots$ //斜对齐 eg: $\ldots \ \cdots \ \vdots \ \ddots$ 九、希腊字母 大写字母 小写字母 $\Alpha$ \Alpha $\alpha$ \alpha $\Beta$ \Beta $\beta$ \beta $\Gamma$ \Gamma $\gamma$ \gamma $\Delta$ \Delta $\delta$ \delta $\Epsilon$ \Epsilon $\epsilon$ \epsilon $\Zeta$ \Zeta $\zeta$ \zeta $\Eta$ \Eta $\eta$ \eta $\Theta$ \Theta $\theta$ \theta $\Iota$ \Iota $\iota$ \iota $\Kappa$ \Kappa $\kappa$ \kappa $\Lambda$ \Lambda $\lambda$ \lambda $\Mu$ \Mu $\mu$ \mu $\Nu$ \Nu $\nu$ \nu $\Xi$ \Xi $\xi$ \xi $\Omicron$ \Omicron $\omicron$ \omicron $\Pi$ \Pi $\pi$ \pi $\Rho$ \Rho $\rho$ \rho $\Sigma$ \Sigma $\sigma$ \sigma $\Tau$ \Tau $\tau$ \tau $\Upsilon$ \Upsilon $\upsilon$ \upsilon $\Phi$ \Phi $\phi$ \phi $\Psi$ \Psi $\psi$ \psi $\Omega$ \Omega $\omega$ \omega]]></content>
+      <categories>
+        <category>Efficiency</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Recipes]]></title>
+    <url>%2F2020%2F11%2F29%2FRecipes%2F</url>
+    <content type="text"><![CDATA[辣椒炒肉原料 猪前腿或后腿肉 螺丝椒 大蒜 酱油 步骤 将瘦肉和肥肉分开，瘦肉加酱油料酒腌制 螺丝椒去籽切片，大蒜切片 将锅烧热加入螺丝椒和少许盐炒至起皮，盛出备用 加少许油将肥肉放入锅中煎干 腌好的瘦肉放入，炒至变色 放入辣椒和大蒜继续翻炒一分半钟左右出锅 番茄土豆炖牛肉原料 牛肉 番茄 土豆 生姜 葱 辣椒 大蒜 黑胡椒 番茄酱 步骤 番茄土豆去皮切块 牛肉切大块焯水盛出备用 葱姜辣椒大蒜下油炒香捞出 加入牛肉将表面煎干 加入番茄翻炒后加水烧开 加入适量番茄酱 转小火炖一个小时 加入土豆后再炖半小时 加入盐和黑胡椒调味 鲫鱼汤原料 鲫鱼 姜 葱 黑胡椒 步骤 鲫鱼去鳞后用开水烫一下再过凉水，用刀刮掉黑膜 锅烧热后加油，将鲫鱼煎至两面金黄 加入姜片和葱白，加水没过鱼身 大火煮沸并捞出浮沫 煮十五分钟后加入盐和黑胡椒调味，撒上葱花]]></content>
+      <categories>
+        <category>Cooking</category>
+      </categories>
+      <tags>
+        <tag>Cooking</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[KMP-Note]]></title>
+    <url>%2F2020%2F11%2F25%2FKMP-Note%2F</url>
+    <content type="text"><![CDATA[KMP算法：设主串为s，模式串为p，若$s{i-j+1}$到$s{i-1}$与$p1$到$p{j-1}$重合，$si$不等于$p_j$，记该状态为$S_k$，假设将模式串后移一段后得到$s{i-t+1}$到$s{i-1}$与$p_1$到$p{t-1}$，记该状态为$S_{k+1}$。 i不回溯 重要概念 PMT Partial Match Table 部分匹配表 存储子串前缀和后缀的最大匹配长度 例如 A B A B A B C A 0 0 1 2 3 4 0 1 next[]数组，将PMT右移一位，同时将第一位设为-1用作特殊标记，因为当第一位不匹配时，i和j需要同时移动 A B A B A B C A -1 0 0 1 2 3 4 0 代码如下 1234567891011121314151617181920212223242526272829303132void getNext(Str substr, int next[])&#123; int i = 0, j = -1; next[0] = -1; //用于标记第一个字符 if (j = -1 || substr.s[i] == substr.s[j]) &#123; ++i; ++j; next[i] = j; &#125; //匹配，最大公共前后缀长度加一 else &#123; j = next[j]; &#125; //失配，使用next数组回溯j&#125;void kmp(Str str, Str substr, int next[])&#123; int i = 0, j = 0; while(i &lt; str.len &amp;&amp; j &lt; substr.len) &#123; if(j == -1 || str.s[i] == substr.s[j]) &#123; ++i; ++j; &#125; else &#123; j = next[j]; &#125; &#125;&#125; KMP拓展 如果你想要找出子串在主串中的所有位置，只需将next[]数组增加一位，如下所示 A B A B A B C A -1 0 0 1 2 3 4 0 0 显然当j指向next[substr.len]时必然发生失配，这样当子串完成一次匹配后j会回溯并继续匹配。 代码如下 12345678910111213141516171819202122232425262728293031323334353637383940void getNext(Str substr, int next[])&#123; int i = 0; j = -1; next[0] = -1; while(i &lt;= substr.len) &#123; if(j == -1 || substr.s[i] == substr.s[j]) &#123; ++i; ++j; next[i] = j; &#125; else &#123; j = next[j]; &#125; &#125;&#125;void kmp(Str str, Str substr, int next[])&#123; int i = 0, j = 0; while(i &lt; str.len) &#123; if(j == substr.len) &#123; printf("%d ", i - substr.len) &#125; if(j == -1 || str.s[i] == substr.s[j]) &#123; ++i; ++j; &#125; else &#123; j = next[j]; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>DataStruct</category>
+      </categories>
+      <tags>
+        <tag>KMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PTA Notes]]></title>
+    <url>%2F2019%2F08%2F05%2FPTA-Notes%2F</url>
+    <content type="text"><![CDATA[B1009做这道题时发现gets()在pta的g++编译器下报错，查了一下发现gets()在C++14标准中被弃用了，可以用fgets()来代替，fgets()的函数声明如下： char * fgets (char * str, int num, FILE * stream); str为要输入的字符串，num为字符串的最大可输入字符，第三个参数为输入文件流，从键盘输入时使用标准输入流stdin。需要注意的一点是fgets()与gets()不同，fgets会将换行符\n也录入字符数组。例如输入Hello World\n使用gets得到的字符数组为{H, e, l, l, o, , W, o, r, l, d, \0}而使用fgets得到的字符数组为{H, e, l, l, o, , W, o, r, l, d, \0, \n}如果想要使用fgets()得到gets()一样的效果，只需将字符数组str最后一位的\n换为\0即可 str[strlen(str) - 1] = &#39;\0&#39;; Notes:如果手动输入字符串，一定要记得在字符串的最后加上结束符\0]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Markdown Notes]]></title>
+    <url>%2F2019%2F07%2F18%2FMarkdown-Note%2F</url>
+    <content type="text"><![CDATA[什么是MarkdownMarkdown是一种在网络上格式化文本的方法。例如，你可以控制文本的显示方式，将字体设为粗体或是斜体，添加图片以及创建列表。大多数情况下，Markdown就是常规文本加上类似#或*之类的非字母字符。 语法指南下面是Markdown的语法概览 标题# 这是标题一## 这是标题二### 这是标题三 字体*斜体*~~删除~~**粗体***你可以将他们**~~组合~~**在一起* 这是斜体这也是斜体 这是粗体这也是粗体 你可以将他们组合在一起 列表不编号//两个空格 1234* Item 1 * Item 2 * Item 2a * Item 2b Item 1 Item 2 Item 2a Item 2b 编号//三个空格 12341. Item 11. Item 2 1. Item 2a 1. Item 2b Item 1 Item 2 Item 2a Item 2b ToDo List123- [x] Item 1 - [ ] Item 1a- [x] Item 2 [x] Item 1 [ ] Item 1a [x] Item 2 图像12![Heartbreak](http://putpwfblt.bkt.clouddn.com/heartbreak.png)格式 ![图片名](url) 链接1[GitHub](http://github.com) GitHub 引用块As Kanye West said:> We’re living the future so> the present is our past. As Kanye West said: We’re living the future sothe present is our past. 内嵌代码行内代码：在代码两端添加`块代码：在代码前后添加```或使用四个空格缩进行内代码 var example = true块代码 123456#include &lt;stdio.h&gt;int main()&#123; printf("Hello World\n"); return 0;&#125; 使用用四个空格缩进 123if (true) &#123; return true&#125; 其他 分割线： --- 反转义： /]]></content>
+      <categories>
+        <category>Efficiency</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+</search>
